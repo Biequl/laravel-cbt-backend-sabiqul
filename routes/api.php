@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UjianController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,9 @@ Route::get('/get-soal-ujian', [UjianController::class, 'getListSoalByKategori'])
 
 //post jawaban
 Route::post('/answers', [UjianController::class, 'jawabSoal'])->middleware('auth:sanctum');
+
+//get hasil ujian
+Route::get('/get-nilai', [UjianController::class, 'hitungNilaiUjianByKategori'])->middleware('auth:sanctum');
 
 //api content
 Route::apiResource('contents', \App\Http\Controllers\Api\ContentController::class)->middleware('auth:sanctum');
